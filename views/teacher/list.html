@@ -118,10 +118,10 @@
         <td>28</td>
         <td>{{$value.tc_gender==1?"女":"男"}}</td>
         <td>{{$value.tc_join_date}}</td>
-        <td>
+        <td data-tcId={{$value.tc_id}} data-status={{$value.tc_status}}>
             <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
             <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
-            <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
+            <a href="javascript:;" class="btn btn-warning btn-xs eod">{{$value.tc_status==0?'注销':'启用'}}</a>
         </td>
     </tr>
     {{/each}}
