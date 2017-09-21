@@ -23,7 +23,7 @@
                     <li class="active">讲师列表</li>
                 </ol>
                 <div class="page-title">
-                    <a href="./teacher_add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                    <a href="/teacher/add" class="btn btn-success btn-sm pull-right">添加讲师</a>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -50,7 +50,6 @@
                         </thead>
                         <tbody id="teacherInfo">
                         <!-- 挖个坑 -->
-
                         </tbody>
                     </table>
                 </div>
@@ -73,7 +72,8 @@
         </div>
     </div>
 
-<script type="text/template" id="teacherTpl">
+    <!--讲师列表模板引擎-->
+    <script type="text/template" id="teacherTpl">
     {{each result}}
     <tr>
         <td>{{$value.tc_id}}</td>
@@ -84,12 +84,14 @@
         <td>{{$value.tc_join_date}}</td>
         <td data-tcId={{$value.tc_id}} data-status={{$value.tc_status}}>
             <a href="#teacherModal" class="btn btn-info btn-xs preview">查 看</a>
-            <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
+            <a href="/teacher/add?tc_id={{$value.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
             <a href="javascript:;" class="btn btn-warning btn-xs eod">{{$value.tc_status==0?'注销':'启用'}}</a>
         </td>
     </tr>
     {{/each}}
 </script>
+
+    <!--查看详情模板引擎-->
     <script type="text/template" id="modalTpl">
         <table class="table table-bordered table-condensed">
             <tbody>

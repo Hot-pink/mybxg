@@ -40,7 +40,6 @@ define(['jquery','template','bootstrap'],function($,template){
                     data:{tc_id:tcId},
                     datatype:'json',
                     success: function (data) {
-                        console.log(data);
                         var html = template('modalTpl',data.result);
                         $('#modalInfo').html(html);
                         $('#teacherModal').modal();
