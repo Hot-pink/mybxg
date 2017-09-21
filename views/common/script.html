@@ -8,7 +8,13 @@
             cookie:'./jquery-cookie/jquery.cookie',
             login:'../js/login',
             template:'./artTemplate/template-web',
-            teacherList:'../js/teacher-list'
+            teacherList:'../js/teacher-list',
+            bootstrap:'./bootstrap/js/bootstrap'
+        },
+        shim:{
+            bootstrap:{
+                deps:['jquery']
+            }
         }
     })
     require(['common']);

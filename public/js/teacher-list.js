@@ -1,4 +1,4 @@
-define(['jquery','template'],function($,template){
+define(['jquery','template','bootstrap'],function($,template){
     $.ajax({
         type:'get',
         url:'/api/teacher',
@@ -26,6 +26,24 @@ define(['jquery','template'],function($,template){
                                 $that.html("注销");
                             }
                         }
+                    }
+                })
+            });
+
+            //讲师资料查看功能
+            $('.preview').click(function () {
+                var $td = $(this).closest("td");
+                var tcId = $td.attr("data-tcId");
+                $.ajax({
+                    type:'get',
+                    url:'/api/teacher/view',
+                    data:{tc_id:tcId},
+                    datatype:'json',
+                    success: function (data) {
+                        console.log(data);
+                        var html = template('modalTpl',data.result);
+                        $('#modalInfo').html(html);
+                        $('#teacherModal').modal();
                     }
                 })
             })
