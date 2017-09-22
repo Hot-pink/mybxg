@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include('./views/common/style.html')?>
+    <link rel="stylesheet" href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.css"/>
 </head>
 <body>
     
@@ -30,7 +31,11 @@
             </li>
         </ol>
         <div class="teacher-add">
-            <form action="" class="form-horizontal col-xs-offset-2">
+            <form id="tecInfo" class="form-horizontal col-xs-offset-2">
+                {{if tc_id}}
+                    <input name="tc_id" type="hidden" value="{{tc_id}}"/>
+                {{/if}}
+
                 <div class="form-group">
                     <label for="" class="col-xs-3 control-label">姓名</label>
                     <div class="col-xs-4">
@@ -41,7 +46,7 @@
                     <div class="form-group">
                         <label for="" class="col-xs-3 control-label">密码</label>
                         <div class="col-xs-4">
-                            <input type="password" class="form-control input-sm">
+                            <input name="tc_pass" type="password" class="form-control input-sm">
                         </div>
                     </div>
                 {{/if}}
@@ -49,7 +54,7 @@
                 <div class="form-group">
                     <label for="" class="col-xs-3 control-label">入职时间</label>
                     <div class="col-xs-4">
-                        <input name="tc_join_date" value="{{tc_join_date}}" type="text" class="form-control input-sm">
+                        <input data-provide='datepicker' data-date-language='zh-CN' data-date-format='yyyy-mm-dd' name="tc_join_date" value="{{tc_join_date}}" type="text" class="form-control input-sm">
                     </div>
                 </div>
                 <div class="form-group">
@@ -65,10 +70,10 @@
                     <label for="" class="col-xs-3 control-label">性别</label>
                     <div class="col-xs-4">
                         <label class="radio-inline">
-                            <input name="tc_gender" type="radio" {{if tc_gender==0}}checked{{/if}}> 男
+                            <input name="tc_gender" type="radio" {{if tc_gender==0}}checked{{/if}} value="0"> 男
                         </label>
                         <label class="radio-inline">
-                            <input name="tc_gender" type="radio" {{if tc_gender==1}}checked{{/if}}> 女
+                            <input name="tc_gender" type="radio" {{if tc_gender==1}}checked{{/if}} value="1"> 女
                         </label>
                     </div>
                 </div>
