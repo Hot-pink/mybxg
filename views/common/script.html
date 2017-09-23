@@ -13,7 +13,9 @@
             teacherAdd:'../js/teacher-add',
             util:'../js/util',
             datepicker:'./bootstrap-datepicker/js/bootstrap-datepicker',
-            language:'./bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min'
+            language:'./bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+            form:'./jquery-form/jquery.form',
+            validate:'./validate/jquery-validate'
         },
         shim:{
             bootstrap:{
@@ -21,6 +23,9 @@
             },
             language:{
                 deps:['jquery','datepicker']
+            },
+            validate:{
+                deps:['jquery']
             }
         }
     })
