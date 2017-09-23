@@ -1,4 +1,4 @@
-define(['jquery','template','uploadify'], function ($,template) {
+define(['jquery','template','uploadify','region'], function ($,template) {
     $.ajax({
         url:'/api/teacher/profile',
         datatype:'json',
@@ -6,7 +6,7 @@ define(['jquery','template','uploadify'], function ($,template) {
             var html = template("settingTpl",data.result)
             $('#formInfo').html(html);
 
-            //上传文件
+            //上传头像文件
             $('#upfile').uploadify({
                 width:120,
                 height:120,
@@ -20,6 +20,11 @@ define(['jquery','template','uploadify'], function ($,template) {
                     var obj = JSON.parse(b);
                     $('.preview img').attr('src',obj.result.path);
                 }
+            })
+
+            //省市县三级联动
+            $('#pcd').region({
+                url:'/public/assets/jquery-region/region.json'
             })
         }
     })
