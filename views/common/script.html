@@ -16,7 +16,8 @@
             language:'./bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
             form:'./jquery-form/jquery.form',
             validate:'./validate/jquery-validate',
-            settings:'../js/settings'
+            settings:'../js/settings',
+            uploadify:'./uploadify/jquery.uploadify.min'
         },
         shim:{
             bootstrap:{
@@ -26,6 +27,9 @@
                 deps:['jquery','datepicker']
             },
             validate:{
+                deps:['jquery']
+            },
+            uploadify:{
                 deps:['jquery']
             }
         }
