@@ -1,4 +1,5 @@
 define(['jquery','template','util','datepicker','language','form','validate'], function ($, template,util) {
+
     //调用封装的工具函数获取url里的get提交的id参数
     var tcId = util.qs("tc_id");
     if(tcId){

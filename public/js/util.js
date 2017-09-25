@@ -16,6 +16,11 @@ define(['jquery'], function () {
                 })
                 return resule;
             }
+        },
+
+        //封装高亮显示功能
+        setMenu: function (path) {
+            $('.aside .navs a[href="'+path+'"]').addClass('active').closest("ul").show();
         }
     }
 
