@@ -4,7 +4,6 @@ define(['jquery','template','ckeditor','uploadify','region',,'datepicker','langu
         url:'/api/teacher/profile',
         datatype:'json',
         success: function (data) {
-            console.log(data);
             var html = template("settingTpl",data.result)
             $('#formInfo').html(html);
 
@@ -64,7 +63,7 @@ define(['jquery','template','ckeditor','uploadify','region',,'datepicker','langu
                         success: function (data) {
                             console.log(data);
                             if(data.code == 200){
-                                //location.reload();
+                                location.reload();
                             }
                         }
                     })
